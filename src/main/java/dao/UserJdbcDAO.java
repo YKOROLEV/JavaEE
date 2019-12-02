@@ -11,11 +11,11 @@ import java.util.List;
 import java.util.Optional;
 
 @SuppressWarnings("SqlIdentifier")
-public class UserDaoJDBC implements UserDao {
+public class UserJdbcDAO implements UserDAO {
 
     private Connection connection;
 
-    public UserDaoJDBC(Connection connection) {
+    public UserJdbcDAO(Connection connection) {
         this.connection = connection;
     }
 

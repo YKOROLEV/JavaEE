@@ -1,7 +1,7 @@
 package service;
 
-import dao.DaoFactory;
-import dao.UserDao;
+import dao.DAOFactory;
+import dao.UserDAO;
 import model.User;
 
 import java.util.List;
@@ -11,16 +11,16 @@ public class UserService {
 
     private static UserService instance;
 
-    private UserDao dao;
+    private UserDAO dao;
 
-    private UserService(DaoFactory factory) {
+    private UserService(DAOFactory factory) {
         dao = factory.getUserDao();
     }
 
     public static UserService getInstance() {
         if (instance == null) {
             instance = new UserService(
-                    DaoFactory.getFactory("jdbc")
+                    DAOFactory.getFactory("hibernate")
             );
         }
 

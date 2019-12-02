@@ -1,4 +1,4 @@
-import dao.JdbcDaoFactory;
+import dao.JdbcDAOFactory;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -8,7 +8,7 @@ public class JdbcDaoTest {
 
     @Test
     public void createConnectionTest() {
-        Connection connection = JdbcDaoFactory.createConnection();
+        Connection connection = JdbcDAOFactory.createConnection();
         Assert.assertNotNull(connection);
     }
 }

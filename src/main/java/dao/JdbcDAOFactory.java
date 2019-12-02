@@ -5,7 +5,7 @@ import java.sql.Driver;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class JdbcDaoFactory extends DaoFactory {
+public class JdbcDAOFactory extends DAOFactory {
 
     private static final String DB_DRIVER = "com.mysql.cj.jdbc.Driver";
     private static final String DB_URL = "jdbc:mysql://localhost:3306/db_example?serverTimezone=UTC";
@@ -23,7 +23,7 @@ public class JdbcDaoFactory extends DaoFactory {
     }
 
     @Override
-    public UserDao getUserDao() {
-        return new UserDaoJDBC(createConnection());
+    public UserDAO getUserDao() {
+        return new UserJdbcDAO(createConnection());
     }
 }
