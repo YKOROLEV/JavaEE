@@ -21,6 +21,8 @@
 4) `DBHelper` - синглтон, у него есть два метода `getConnection` и `getConfiguration` которые отдают Connection для jdbc dao и Configuration для hibernate dao соответственно.
 5) Сервис - синглтон
 
+> [committed task3](https://github.com/YKOROLEV/preproject1/tree/task3) 
+
 ## TASK 4
 
 1) Добавить классу **User** поле **role** типа String, которое будет принимать значения user или admin
