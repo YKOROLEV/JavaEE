@@ -1,8 +1,13 @@
 package dao;
 
+import util.PropertiesHelper;
+
 public abstract class DAOFactory {
 
-    public static DAOFactory getFactory(String factory) {
+    public static DAOFactory getFactory() {
+        String factory = PropertiesHelper.load("dao.properties")
+                .getValue("dao.type");
+
         switch (factory) {
             case "jdbc": {
                 return new JdbcDAOFactory();

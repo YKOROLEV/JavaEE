@@ -20,7 +20,7 @@ public class UserService {
     public static UserService getInstance() {
         if (instance == null) {
             instance = new UserService(
-                    DAOFactory.getFactory("hibernate")
+                    DAOFactory.getFactory()
             );
         }
 
