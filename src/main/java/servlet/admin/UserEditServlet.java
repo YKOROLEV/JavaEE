@@ -28,7 +28,6 @@ public class UserEditServlet extends HttpServlet {
             request.setAttribute("user", user);
         }
 
-
         RequestDispatcher dispatcher = request.getRequestDispatcher("/admin/userEdit.jsp");
         dispatcher.forward(request, response);
     }

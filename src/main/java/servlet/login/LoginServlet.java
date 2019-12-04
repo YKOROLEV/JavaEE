@@ -20,8 +20,7 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/login/index.jsp");
-        dispatcher.forward(request, response);
+        goLoginPage(request, response);
     }
 
     @Override
@@ -38,8 +37,11 @@ public class LoginServlet extends HttpServlet {
                 session.setAttribute("user_role", user.get().getRole());
 
                 redirectFromRole(response, user.get().getRole());
+                return;
             }
         }
+
+        goLoginPage(request, response);
     }
 
     private void redirectFromRole(HttpServletResponse response, String role) throws IOException {
@@ -48,5 +50,10 @@ public class LoginServlet extends HttpServlet {
         } else {
             response.sendRedirect("/user");
         }
+    }
+
+    private void goLoginPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/login/index.jsp");
+        dispatcher.forward(request, response);
     }
 }
