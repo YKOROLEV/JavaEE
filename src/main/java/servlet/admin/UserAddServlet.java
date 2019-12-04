@@ -1,4 +1,4 @@
-package servlet;
+package servlet.admin;
 
 import model.User;
 import service.UserService;
@@ -12,14 +12,14 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Optional;
 
-@WebServlet("/userAdd")
+@WebServlet("/admin/userAdd")
 public class UserAddServlet extends HttpServlet {
 
     private UserService userService = UserService.getInstance();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/userAdd.jsp");
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin/userAdd.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -28,20 +28,22 @@ public class UserAddServlet extends HttpServlet {
         transformUserFromRequest(request)
                 .ifPresent(userService::save);
 
-        response.sendRedirect("/userList");
+        response.sendRedirect("/admin/userList");
     }
 
     private Optional<User> transformUserFromRequest(HttpServletRequest request) {
         String login = request.getParameter("login");
         String name = request.getParameter("name");
         String password = request.getParameter("password");
+        String role = request.getParameter("role");
 
         boolean success = login != null
                 && name != null
-                && password != null;
+                && password != null
+                && role != null;
 
         return success ?
-                Optional.of(new User(login, name, password)) :
+                Optional.of(new User(login, name, password, role)) :
                 Optional.empty();
     }
 }

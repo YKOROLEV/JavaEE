@@ -18,7 +18,23 @@
 </head>
 <body>
 
-<p>Index page</p>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form method="post" action="/login">
+                <div class="form-group">
+                    <label for="inputLogin">Login</label>
+                    <input type="text" class="form-control" id="inputLogin" name="login" placeholder="Login">
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword">Password</label>
+                    <input type="password" class="form-control" id="inputPassword" name="password" placeholder="Password">
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>

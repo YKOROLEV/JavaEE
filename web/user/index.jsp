@@ -18,7 +18,7 @@
 </head>
 <body>
 
-<p>Index page</p>
+<p>User page</p>
 
 </body>
 </html>

@@ -1,4 +1,4 @@
-package servlet;
+package servlet.admin;
 
 import service.UserService;
 
@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/userDelete")
+@WebServlet("/admin/userDelete")
 public class UserDeleteServlet extends HttpServlet {
 
     private UserService userService = UserService.getInstance();
@@ -23,6 +23,6 @@ public class UserDeleteServlet extends HttpServlet {
             userService.deleteById(id);
         }
 
-        response.sendRedirect("/userList");
+        response.sendRedirect("/admin/userList");
     }
 }

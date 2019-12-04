@@ -21,10 +21,11 @@ public class UserJdbcDAO implements UserDAO {
 
     @Override
     public void save(User user) {
-        try (PreparedStatement statement = connection.prepareStatement("INSERT INTO user (login, name, password) VALUES (?, ?, ?)")) {
+        try (PreparedStatement statement = connection.prepareStatement("INSERT INTO user (login, name, password, role) VALUES (?, ?, ?, ?)")) {
             statement.setString(1, user.getLogin());
             statement.setString(2, user.getName());
             statement.setString(3, user.getPassword());
+            statement.setString(4, user.getRole());
 
             statement.executeUpdate();
         } catch (SQLException e) {
@@ -34,10 +35,11 @@ public class UserJdbcDAO implements UserDAO {
 
     @Override
     public void update(User user) {
-        try (PreparedStatement statement = connection.prepareStatement("UPDATE user SET name = ?, password = ? WHERE id = ?")) {
+        try (PreparedStatement statement = connection.prepareStatement("UPDATE user SET name = ?, password = ?, role = ? WHERE id = ?")) {
             statement.setString(1, user.getName());
             statement.setString(2, user.getPassword());
-            statement.setLong(3, user.getId());
+            statement.setString(3, user.getRole());
+            statement.setLong(4, user.getId());
 
             statement.executeUpdate();
         } catch (SQLException e) {
@@ -58,7 +60,8 @@ public class UserJdbcDAO implements UserDAO {
                         rs.getLong("id"),
                         rs.getString("login"),
                         rs.getString("name"),
-                        rs.getString("password")
+                        rs.getString("password"),
+                        rs.getString("role")
                 );
 
                 optionalUser = Optional.of(user);
@@ -82,7 +85,8 @@ public class UserJdbcDAO implements UserDAO {
                         rs.getLong("id"),
                         rs.getString("login"),
                         rs.getString("name"),
-                        rs.getString("password")
+                        rs.getString("password"),
+                        rs.getString("role")
                 );
 
                 optionalUser = Optional.of(user);
@@ -105,7 +109,8 @@ public class UserJdbcDAO implements UserDAO {
                         rs.getLong("id"),
                         rs.getString("login"),
                         rs.getString("name"),
-                        rs.getString("password")
+                        rs.getString("password"),
+                        rs.getString("role")
                 );
                 userList.add(user);
             }

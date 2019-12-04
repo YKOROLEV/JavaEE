@@ -1,4 +1,4 @@
-package servlet;
+package servlet.admin;
 
 import model.User;
 import service.UserService;
@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/userEdit")
+@WebServlet("/admin/userEdit")
 public class UserEditServlet extends HttpServlet {
 
     private UserService userService = UserService.getInstance();
@@ -29,7 +29,7 @@ public class UserEditServlet extends HttpServlet {
         }
 
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("userEdit.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/admin/userEdit.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -45,6 +45,6 @@ public class UserEditServlet extends HttpServlet {
             userService.update(user);
         });
 
-        response.sendRedirect("/userList");
+        response.sendRedirect("/admin/userList");
     }
 }

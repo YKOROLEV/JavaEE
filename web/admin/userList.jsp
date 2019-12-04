@@ -23,7 +23,7 @@
 <div class="container mt-3">
     <h2>User list</h2>
     <p>CRUD Example</p>
-    <button type="button" class="btn btn-primary" onclick="window.location='/userAdd'">Create User</button>
+    <button type="button" class="btn btn-primary" onclick="window.location='/admin/userAdd'">Create User</button>
 </div>
 
 <jsp:useBean id="userList" type="java.util.List<model.User>" scope="request"/>
@@ -46,8 +46,8 @@
                 <td>${user.login}</td>
                 <td>${user.name}</td>
                 <td>
-                    <button type="button" class="btn btn-outline-primary" onclick="location.href='/userEdit?id=${user.id}'">Edit</button>
-                    <button type="button" class="btn btn-outline-danger" onclick="location.href='/userDelete?id=${user.id}'">Delete</button>
+                    <button type="button" class="btn btn-outline-primary" onclick="location.href='/admin/userEdit?id=${user.id}'">Edit</button>
+                    <button type="button" class="btn btn-outline-danger" onclick="location.href='/admin/userDelete?id=${user.id}'">Delete</button>
                 </td>
             </tr>
         </c:forEach>

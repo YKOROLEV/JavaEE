@@ -3,14 +3,15 @@ import org.junit.Before;
 import org.junit.Test;
 import service.UserService;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class UserHibernateDaoTest {
 
     private UserService userService = UserService.getInstance();
 
-    private static final User ADMIN = new User("admin", "tomato", "123");
-    private static final User USER = new User("user", "ifactor", "123");
+    private static final User ADMIN = new User("admin", "tomato", "123", "admin");
+    private static final User USER = new User("user", "ifactor", "123", "user");
 
     @Before
     public void init() {
